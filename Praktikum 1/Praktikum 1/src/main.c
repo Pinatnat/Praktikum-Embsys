@@ -85,6 +85,7 @@ int main (void)
  		}//check if button pressed
  		if(ioport_get_pin_level(GPIO_PUSH_BUTTON_1)==0){
  			flagLed1 = (flagLed1==0) ? 1 : 0;				//if true, change flag
+			 counter = counter-1;
 		}//check if button pressed
 		if(ioport_get_pin_level(GPIO_PUSH_BUTTON_2)==0){
 			counter = counter+1;
@@ -98,6 +99,8 @@ int main (void)
 
 		if(counter%2==1){
 			ioport_set_pin_level(J1_PIN0, 1); //set high
+			delay_ms(500);
+			ioport_set_pin_level(J1_PIN0, 0);
 		}else{
 			ioport_set_pin_level(J1_PIN0, 0); //set low
 		}

@@ -90,7 +90,7 @@ int main (void)
 			snprintf(strbuf, sizeof(strbuf), "Light : %3d",intensity);
 			gfx_mono_draw_string(strbuf,0, 16, &sysfont);
 			delay_ms(50);
-			if (intensity > 60){
+			if (intensity <100){
 				flagLed0 = 0;
 			}
 			else {

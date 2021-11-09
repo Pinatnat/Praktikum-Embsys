@@ -6234,12 +6234,12 @@ __always_inline static void arch_ioport_set_pin_level(ioport_pin_t pin,
 
 	if (level) {
     1e64:	de bf       	out	0x3e, r29	; 62
-    1e66:	fd e3       	ldi	r31, 0x3D	; 61
+    1e66:	f4 e6       	ldi	r31, 0x64	; 100
     1e68:	4f 16       	cp	r4, r31
     1e6a:	51 04       	cpc	r5, r1
     1e6c:	61 04       	cpc	r6, r1
     1e6e:	71 04       	cpc	r7, r1
-    1e70:	20 f4       	brcc	.+8      	; 0x1e7a <main+0x186>
+    1e70:	20 f0       	brcs	.+8      	; 0x1e7a <main+0x186>
     1e72:	81 e0       	ldi	r24, 0x01	; 1
 		base->OUTSET = arch_ioport_pin_to_mask(pin);
     1e74:	80 93 e5 07 	sts	0x07E5, r24	; 0x8007e5 <__TEXT_REGION_LENGTH__+0x7be7e5>

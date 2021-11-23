@@ -103,7 +103,7 @@ static portTASK_FUNCTION(vCounter, r_) {
 		
 		if(xSemaphoreTake(xSemaphore, (TickType_t) 10) == pdTRUE) {
 			counter++;
-			snprintf(strbuf, sizeof(strbuf), "Counter : %d", counter);
+			snprintf(strbuf, sizeof(strbuf), "Counter : %d  ", counter);
 			gfx_mono_draw_string(strbuf,0, 8, &sysfont);
 			xSemaphoreGive(xSemaphore);	
 		}
@@ -119,7 +119,15 @@ static portTASK_FUNCTION(vPushButton2, t_) {
 		if(ioport_get_pin_level(GPIO_PUSH_BUTTON_2)==0){
 			if(xSemaphoreTake(xSemaphore, (TickType_t) 10) == pdTRUE) {
 				counter2++;
-				snprintf(strbuf, sizeof(strbuf), "Counter 2 : %d", counter2);
+				snprintf(strbuf, sizeof(strbuf), "Counter 2 : %d  ", counter2);
+				gfx_mono_draw_string(strbuf,0, 16, &sysfont);
+				xSemaphoreGive(xSemaphore);
+			}
+		}
+		if(ioport_get_pin_level(GPIO_PUSH_BUTTON_1)==0){
+			if(xSemaphoreTake(xSemaphore, (TickType_t) 10) == pdTRUE) {
+				counter2--;
+				snprintf(strbuf, sizeof(strbuf), "Counter 2 : %d  ", counter2);
 				gfx_mono_draw_string(strbuf,0, 16, &sysfont);
 				xSemaphoreGive(xSemaphore);
 			}

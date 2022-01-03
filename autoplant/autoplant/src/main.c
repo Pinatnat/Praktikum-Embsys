@@ -208,6 +208,8 @@ int main (void) {
 		
 		delay_ms(500);
 		
+		ioport_set_pin_level(J1_PIN0, 0); //set low
+		
 		
 	}
 	
